@@ -21,16 +21,16 @@ public class HerokuAppTestCheckBox {
         driver.findElement(By.cssSelector("a[href='/checkboxes']")).click();
         WebElement firstCheckBox = driver.findElement(By.cssSelector("form input:first-child"));
         WebElement secondCheckBox = driver.findElement(By.cssSelector("form input:last-child"));
-        String checkBoxActuals = secondCheckBox.getText();
-        System.out.println("checkBoxActuals: " + checkBoxActuals);
-        if (checkBoxActuals != ""){
-            System.out.println("Checkbox1 unchecked");
-            secondCheckBox.click();
-        }
-        System.out.println("After click: " + secondCheckBox.getText());
-        //Assert.assertEquals();
-
-
-        //driver.quit();
+        boolean isCheckBoxActuals = firstCheckBox.isSelected();
+        if (!isCheckBoxActuals) System.out.println("Checkbox1 unchecked");
+        firstCheckBox.click();
+        isCheckBoxActuals = firstCheckBox.isSelected();
+        if (isCheckBoxActuals) System.out.println("Checkbox1 checked");
+        isCheckBoxActuals = secondCheckBox.isSelected();
+        if (isCheckBoxActuals) System.out.println("Checkbox2 checked");
+        secondCheckBox.click();
+        isCheckBoxActuals = secondCheckBox.isSelected();
+        if (!isCheckBoxActuals) System.out.println("Checkbox2 unchecked");
+        driver.quit();
     }
 }
