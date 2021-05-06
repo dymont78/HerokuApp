@@ -1,0 +1,49 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Домашняя работа к уроку №7</title>
+    <style type="text/css">
+        TABLE {
+            width: 300px; /* Ширина таблицы */
+            border-collapse: collapse; /* Убираем двойные линии между ячейками */
+            border: 2px solid maroon; /* Прячем рамку вокруг таблицы */
+        }
+
+        TD, TH {
+            padding: 3px; /* Поля вокруг содержимого таблицы */
+            border: 1px solid maroon; /* Параметры рамки */
+            text-align: center; /* Выравнивание по центру */
+        }
+    </style>
+</head>
+<body>
+<a href="https://teachmeskills.by" target="_blank"><img src="Screenshot_2.jpg" width="222" height="66"></a>
+<p>Список студентов по курсу QA группы
+    <select>
+        <option>qa05-onl</option>
+        <option>qa06-onl</option>
+    </select>
+</p>
+<table style="width:50%">
+    <tr>
+        <th>ФИО</th>
+        <th>Отметка о выпонении</th>
+        <th>Оценка</th>
+    </tr>
+    <tr>
+        <td>Ткачук Дмитрий</td>
+        <td><input id="chechbox_input" type="checkbox"></td>
+        <td><input type="text" id="ocenka" name="ocenka"><br><br></td>
+    </tr>
+    <tr>
+        <td>Сидоров Иван</td>
+        <td><input id="chechbox_input" type="checkbox"></td>
+        <td><input type="text" id="ocenka" name="ocenka"><br><br></td>
+    </tr>
+</table>
+<p>
+    <button>Добавить студента</button>
+</p>
+
+</body>
+</html>
