@@ -16,7 +16,7 @@ public class HerokuAppTestCheckBox {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
-        //driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("http://the-internet.herokuapp.com/");
         driver.findElement(By.cssSelector("a[href='/checkboxes']")).click();
         WebElement firstCheckBox = driver.findElement(By.cssSelector("form input:first-child"));
