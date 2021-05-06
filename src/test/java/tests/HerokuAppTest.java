@@ -27,17 +27,15 @@ public class HerokuAppTest {
         imputFild.sendKeys(Keys.ARROW_UP);
         actualText = imputFild.getAttribute("value");
         Assert.assertEquals(actualText, "21");
-
-        //driver.quit();
+        driver.quit();
     }
     @Test
-    public void herokuAppTestAddRemove(){
+    public void herokuAppAddRemoveTest(){
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
-        //driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("http://the-internet.herokuapp.com/");
-        //driver.findElement(By.xpath("//li[2]//a")).click();
         driver.findElement(By.xpath("//a[text()='Add/Remove Elements']")).click();
         driver.findElement(By.xpath("//button[text()='Add Element']")).click();
         driver.findElement(By.xpath("//button[text()='Add Element']")).click();
@@ -45,6 +43,7 @@ public class HerokuAppTest {
         driver.findElement(By.xpath("//button[text()='Delete']")).click();
         List<WebElement> elements = driver.findElements(By.xpath("//div[@id='elements']//button[@class='added-manually']"));
         System.out.println("Количество оставшихся элементов: " + elements.size());
+        Assert.assertEquals(elements.size(), 2);
         driver.quit();
     }
 
