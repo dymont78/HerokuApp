@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 
 @Test
 public class HerokuAppTestCheckBox {
-    public void herokuAppTestCheckBox(){
+    public void herokuAppCheckBoxTest(){
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
@@ -21,16 +21,20 @@ public class HerokuAppTestCheckBox {
         driver.findElement(By.cssSelector("a[href='/checkboxes']")).click();
         WebElement firstCheckBox = driver.findElement(By.cssSelector("form input:first-child"));
         WebElement secondCheckBox = driver.findElement(By.cssSelector("form input:last-child"));
-        boolean isCheckBoxActuals = firstCheckBox.isSelected();
-        if (!isCheckBoxActuals) System.out.println("Checkbox1 unchecked");
+        boolean isCheckBoxSelected = firstCheckBox.isSelected();
+        if (!isCheckBoxSelected) System.out.println("Checkbox1 unchecked");
+        Assert.assertTrue(!isCheckBoxSelected);
         firstCheckBox.click();
-        isCheckBoxActuals = firstCheckBox.isSelected();
-        if (isCheckBoxActuals) System.out.println("Checkbox1 checked");
-        isCheckBoxActuals = secondCheckBox.isSelected();
-        if (isCheckBoxActuals) System.out.println("Checkbox2 checked");
+        isCheckBoxSelected = firstCheckBox.isSelected();
+        if (isCheckBoxSelected) System.out.println("Checkbox1 checked");
+        Assert.assertTrue(isCheckBoxSelected);
+        isCheckBoxSelected = secondCheckBox.isSelected();
+        if (isCheckBoxSelected) System.out.println("Checkbox2 checked");
+        Assert.assertTrue(isCheckBoxSelected);
         secondCheckBox.click();
-        isCheckBoxActuals = secondCheckBox.isSelected();
-        if (!isCheckBoxActuals) System.out.println("Checkbox2 unchecked");
+        isCheckBoxSelected = secondCheckBox.isSelected();
+        if (!isCheckBoxSelected) System.out.println("Checkbox2 unchecked");
+        Assert.assertTrue(!isCheckBoxSelected);
         driver.quit();
     }
 }
