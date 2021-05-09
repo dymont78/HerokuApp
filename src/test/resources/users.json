@@ -1,0 +1,17 @@
+{
+  "users": [
+    {
+      "email": "1@tut.by",
+      "firstName": "first",
+      "lastName": "last",
+      "age": 20,
+      "password": 12345
+    },
+    {
+      "email": "2@tut.by",
+      "firstName": "first2",
+      "lastName": "last2",
+      "age": 25
+    }
+  ]
+}
