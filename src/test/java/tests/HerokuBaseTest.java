@@ -15,6 +15,7 @@ import java.util.concurrent.TimeUnit;
 public class HerokuBaseTest {
     WebDriver driver;
     WebDriverWait driverWait;
+
     @BeforeMethod
     public void initTest() {
         WebDriverManager.chromedriver().setup();
