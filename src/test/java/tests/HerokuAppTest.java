@@ -2,23 +2,15 @@ package tests;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
-public class HerokuAppTest {
+public class HerokuAppTest extends HerokuBaseTest {
 
     @Test
-    public void herokuAppTest(){
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+    public void herokuAppTest() {
         driver.get("http://the-internet.herokuapp.com/inputs");
         WebElement imputFild = driver.findElement(By.xpath("//*[@type='number']"));
         imputFild.sendKeys("20");
@@ -27,14 +19,10 @@ public class HerokuAppTest {
         imputFild.sendKeys(Keys.ARROW_UP);
         actualText = imputFild.getAttribute("value");
         Assert.assertEquals(actualText, "21");
-        driver.quit();
     }
+
     @Test
-    public void herokuAppAddRemoveTest(){
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    public void herokuAppAddRemoveTest() {
         driver.get("http://the-internet.herokuapp.com/");
         driver.findElement(By.xpath("//a[text()='Add/Remove Elements']")).click();
         driver.findElement(By.xpath("//button[text()='Add Element']")).click();
@@ -44,7 +32,6 @@ public class HerokuAppTest {
         List<WebElement> elements = driver.findElements(By.xpath("//div[@id='elements']//button[@class='added-manually']"));
         System.out.println("Количество оставшихся элементов: " + elements.size());
         Assert.assertEquals(elements.size(), 2);
-        driver.quit();
     }
 
 }

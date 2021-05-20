@@ -11,12 +11,8 @@ import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 
 @Test
-public class HerokuAppTestCheckBox {
+public class HerokuAppTestCheckBox extends HerokuBaseTest{
     public void herokuAppCheckBoxTest(){
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("http://the-internet.herokuapp.com/");
         driver.findElement(By.cssSelector("a[href='/checkboxes']")).click();
         WebElement firstCheckBox = driver.findElement(By.cssSelector("form input:first-child"));
